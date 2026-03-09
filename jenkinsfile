@@ -3,23 +3,23 @@ pipeline {
     stages{
         stage('Clone Code from Github') {
             steps{
-                https://github.com/kiruthikaulk-dev/CICD_Pipeline_Project01.git  
+                git 'https://github.com/kiruthikaulk-dev/CICD_Pipeline_Project01.git' 
             } 
         }
         stage('Build Docker Image'){
             steps{
-                bash 'docker build -t kiruthika91/python-devops .'
+                bat 'docker build -t kiruthika91/python-devops .'
             }
         }
         stage('Push image to docker hub'){
             steps{
-                bash 'push kiruthika91/python-devops'
+                bat 'docker push kiruthika91/python-devops'
             }
         }
         stage('Deploy Kubernetes'){
             steps{
-                bash 'kubectl apply -f deployment.yml'
-                bash 'kubectl apply -f service.yml'
+                bat 'kubectl apply -f deployment.yml'
+                bat 'kubectl apply -f service.yml'
             }
         }
     }
