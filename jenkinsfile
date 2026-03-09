@@ -4,8 +4,7 @@ pipeline {
         stage('Clone Code from Github') {
             steps{
                 https://github.com/kiruthikaulk-dev/CICD_Pipeline_Project01.git  
-            }
-          
+            } 
         }
         stage('Build Docker Image'){
             steps{
